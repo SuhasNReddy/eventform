@@ -1,0 +1,33 @@
+/* EventDetails container */
+.eventDetails {
+    display: flex;
+    /* margin-top: 20px; */
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    /* margin: 10px; */
+    width: fit-content;
+    height: fit-content;
+    font-size: 18px;
+    text-align: left;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Details section */
+  .details {
+    flex: 1;
+  }
+  
+  /* Registration details */
+  .registration {
+    margin-top: 15px;
+  }
+  
+  .eventDetails p{
+    color: rgb(135, 135, 135);
+  }
+ .eventDetails strong{
+    font-size: 1rem;
+    color: rgb(120, 120, 120);
+ }
+
