@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 import styles from './styles/EventRegistrationFrom.module.css'; // Import the CSS module
 
 const EventRegistrationForm = ({ setAllEvents }) => {
@@ -10,6 +11,8 @@ const EventRegistrationForm = ({ setAllEvents }) => {
   const [attendingWithGuest, setAttendingWithGuest] = useState(false);
   const [guestName, setGuestName] = useState('');
   const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate();
 
   const validate = () => {
     let validationErrors = {};
@@ -43,6 +46,10 @@ const EventRegistrationForm = ({ setAllEvents }) => {
       setAttendingWithGuest(false);
       setGuestName('');
       setErrors({});
+      
+      setTimeout(() => {
+        navigate('/allRegisters');
+      }, 1500); 
     } else {
       setErrors(validationErrors);
       Object.values(validationErrors).forEach((error) => toast.error(error));
