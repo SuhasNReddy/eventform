@@ -14,7 +14,7 @@ const EventRegistrationForm = ({ setAllEvents }) => {
 
   const navigate = useNavigate();
 
-  const validate = (name, email, age, attendingWithGuest, guestName) => {
+  const validate = () => {
   let validationErrors = {};
 
   if (!name.trim()) validationErrors.name = 'Name is required';
