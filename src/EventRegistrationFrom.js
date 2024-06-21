@@ -14,16 +14,22 @@ const EventRegistrationForm = ({ setAllEvents }) => {
 
   const navigate = useNavigate();
 
-  const validate = () => {
-    let validationErrors = {};
-    if (!name) validationErrors.name = 'Name is required';
-    if (!email) validationErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(email)) validationErrors.email = 'Email is invalid';
-    if (!age) validationErrors.age = 'Age is required';
-    else if (isNaN(age) || age <= 0) validationErrors.age = 'Age must be a number greater than 0';
-    if (attendingWithGuest && !guestName) validationErrors.guestName = 'Guest name is required';
-    return validationErrors;
-  };
+  const validate = (name, email, age, attendingWithGuest, guestName) => {
+  let validationErrors = {};
+
+  if (!name.trim()) validationErrors.name = 'Name is required';
+  
+  if (!email) validationErrors.email = 'Email is required';
+  else if (!/\S+@\S+\.\S+/.test(email)) validationErrors.email = 'Email is invalid';
+
+  if (!age) validationErrors.age = 'Age is required';
+  else if (isNaN(age) || age <= 0 || age >= 100) validationErrors.age = 'Age must be a number greater than 0 and less than 100';
+
+  if (attendingWithGuest && !guestName.trim()) validationErrors.guestName = 'Guest name is required';
+
+  return validationErrors;
+};
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
